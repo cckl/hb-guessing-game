@@ -8,14 +8,16 @@ print("Try to guess my number")
 secret_number = random.randint(1, 100)
 
 counter = 0
-try:
-    guess = int(input("Your guess? "))
-except ValueError:
-    print("Please enter a valid integer!")
-    guess = int(input("Your guess? "))
+while True:
+    try:
+        guess = int(input("Your guess? "))
+        break
+    except ValueError:
+        print("Please enter a valid integer!")
+       
 
 
-while guess != secret_number:
+while True:
     if int(guess) > 100 or int(guess) < 1:
         print ('Sorry, please enter a number between 1 and 100!')
         guess = int(input("Your guess? "))
@@ -28,6 +30,8 @@ while guess != secret_number:
         print("Your guess is too low, try again.")
         counter += 1
         guess = int(input("Your guess? "))
-print("Well done {}! You found my # in {} tries!".format(name, counter))
+    else:
+        print("Well done {}! You found # in {} tries!".format(name, counter))
+        break
 
 
